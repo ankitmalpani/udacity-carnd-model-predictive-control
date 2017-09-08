@@ -56,6 +56,10 @@ After starting with a 100ms latency value and some trials, I thought, I got bett
 Another such conversion was from miles/hour to meters/second
 - Also, this being the final project, I need to now go back and review how well the all the learnings from this term line up (This was mathematically a heavy term for me). That should definitely be quite exciting.
 
+
+### A Side Note:
+Fellow students and the community on slack and forums have been very helpful for this project and through out the term.
+
 ---
 
 ## Dependencies

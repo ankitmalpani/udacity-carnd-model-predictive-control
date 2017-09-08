@@ -28,12 +28,12 @@ In my first trial I started with `N=30, dt=0.05`, which lead to longer time for 
 
 ### Polynomial fitting and Transforming the reference track co-ordinates
 
-This took me some time, but thanks to help from my fellow students and bit of reading, I was able to figure this step out. The simulator gives us points of the reference track in absolute coordinates. I transformed these to be relative to the location of the vehicle, which you can see in [Utils](src/utils.cpp) and [Main](src/main.cpp)
-Once this was done - I fitted a 3rd order polynomial to these points, which you can see [here](src/main.cpp).
+This took me some time, but thanks to help from my fellow students and bit of reading, I was able to figure this step out. The simulator gives us points of the reference track in absolute coordinates. I transformed these to be relative to the location of the vehicle, which you can see in [Utils](src/utils.cpp#L75) and [Main](src/main.cpp#L77)
+Once this was done - I fitted a 3rd order polynomial to these points, which you can see [here](src/main.cpp#78).
 
 ### Choosing weights for the MPC cost function
 
-I defined a [cost function](src/MPC.cpp) and added weights to the different parts of the cost function using these rules as specified in the class videos and resources.
+I defined a [cost function](src/MPC.cpp#L56-L84) and added weights to the different parts of the cost function using these rules as specified in the class videos and resources.
 
 - In general a higher `cte` or `psi` should lead to a larger cost.
 - Speed should be de-prioritized against staying on track. So smaller values can be used
@@ -54,9 +54,7 @@ After starting with a 100ms latency value and some trials, I thought, I got bett
 - I certainly think my code can be improved. I already refactored plenty of code into my utils class, but I am sure a few improvements are possible after another pass.
 - Due to following some conversations and learnings from my fellow students, I ended up implementing some parameters differently, which ended up taking me a longer time to debug my code For ex: The computes in my MPC equations are based on params with a different sign versus what is returned by the simulator - so this positive, negative conversion was very important and I had to convert the signs both the times - while retrieving and publishing from the simulator
 Another such conversion was from miles/hour to meters/second
-- Also, this being the final project, I need to now go back and review how well the all the learnings from this term line up. That should definitely be quite exciting.
-
-
+- Also, this being the final project, I need to now go back and review how well the all the learnings from this term line up (This was mathematically a heavy term for me). That should definitely be quite exciting.
 
 ---
 

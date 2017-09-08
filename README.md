@@ -7,7 +7,9 @@ An improvement over PID controller can be achieved by trying to capture a model 
 One can visualize the the state of a vehicle initially i.e. its position in an x,y plane, a driving direction and a velocity.
 An important addition to this state is the cross-track error and an angle error which helps us define and implement the model predictive controller. Here are the equations (from Udacity's learning resources):
 
-![MPC equations (© Udacity)](images/mpc_equations.png)
+![MPC state](images/mpc_state.png)
+![MPC cte](images/mpc_cte.png)
+![MPC psi](images/mpc_psi.png)
 
 Here, the state of the vehicle is given by the position `(x,y)`, the current angle `psi` and the velocity `v`.
 The actuators are the acceleration/deceleration `a` and the steering angle `delta`.
@@ -41,7 +43,7 @@ I defined a [cost function](src/MPC.cpp) and added weights to the different part
 
 ### Latency
 To predict the vehicle state post expected latency, I just had to call the update equations again on the state given by the simulator.
-After starting with a 100ms latency value and some trials, I thought, I got better results with adding about 20-30ms to this value (finally chose 120ms - 100ms for latency and 20ms for calculation in MPC implementation). 
+After starting with a 100ms latency value and some trials, I thought, I got better results with adding about 20-30ms to this value (finally chose 120ms - 100ms for latency and 20ms for calculation in MPC implementation).
 
 ### Final product
 
